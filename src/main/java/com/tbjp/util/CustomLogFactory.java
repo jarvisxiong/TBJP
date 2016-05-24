@@ -210,54 +210,54 @@ public class CustomLogFactory {
             return 0;
         }
 
-        private void setCount2Zero2(String logName) {
+        private void setCount2Zero(String logName) {
             if ("tp.log".equals(logName)) {
-                CustomLogFactory.createFileName(logName);
+                CustomLogFactory.tpLoggerFileRemovedCount=0;
             }
 
             if ("alive.log".equals(logName)) {
-                CustomLogFactory.access$402(0);
+                CustomLogFactory.aliveLoggerFileRemovedCount=0;
             }
 
             if ("business.log".equals(logName)) {
-                CustomLogFactory.access$502(0);
+                CustomLogFactory.businessLoggerFileRemovedCount=0;
             }
 
             if ("biz.log".equals(logName)) {
-                CustomLogFactory.access$602(0);
+                CustomLogFactory.bizLoggerFileRemovedCount=0;
             }
 
             if ("jvm.log".equals(logName)) {
-                CustomLogFactory.access$702(0);
+                CustomLogFactory.jvmLoggerFileRemovedCount=0;
             }
 
             if ("common.log".equals(logName))
-                CustomLogFactory.access$802(0);
+                CustomLogFactory.commonLoggerFileRemovedCount=0;
         }
 
-        private void incrCount2(String logName) {
+        private void incrCount(String logName) {
             if ("tp.log".equals(logName)) {
-                CustomLogFactory.access$308();
+                CustomLogFactory.tpLoggerFileRemovedCount++;
             }
 
             if ("alive.log".equals(logName)) {
-                CustomLogFactory.access$408();
+                CustomLogFactory.aliveLoggerFileRemovedCount++;
             }
 
             if ("business.log".equals(logName)) {
-                CustomLogFactory.access$508();
+                CustomLogFactory.businessLoggerFileRemovedCount++;
             }
 
             if ("biz.log".equals(logName)) {
-                CustomLogFactory.access$608();
+                CustomLogFactory.bizLoggerFileRemovedCount++;
             }
 
             if ("jvm.log".equals(logName)) {
-                CustomLogFactory.access$708();
+                CustomLogFactory.jvmLoggerFileRemovedCount++;
             }
 
             if ("common.log".equals(logName))
-                CustomLogFactory.access$808();
+                CustomLogFactory.commonLoggerFileRemovedCount++;
         }
     }
 }
