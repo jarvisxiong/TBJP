@@ -1,6 +1,7 @@
 package com.tbjp.util;
 
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 
 /**
  * Created with IntelliJ IDEA.

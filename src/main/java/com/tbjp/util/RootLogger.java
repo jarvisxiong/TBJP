@@ -1,6 +1,10 @@
 package com.tbjp.util;
 
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.helpers.LogLog;
+
 /**
  * Created with IntelliJ IDEA.
  * User: tubingbing

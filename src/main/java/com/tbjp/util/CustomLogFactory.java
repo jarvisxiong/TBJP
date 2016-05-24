@@ -1,7 +1,16 @@
 package com.tbjp.util;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.tbjp.common.UpdateModule;
+import org.apache.log4j.*;
+import org.apache.log4j.spi.LoggerRepository;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -201,9 +210,9 @@ public class CustomLogFactory {
             return 0;
         }
 
-        private void setCount2Zero(String logName) {
+        private void setCount2Zero2(String logName) {
             if ("tp.log".equals(logName)) {
-                CustomLogFactory.access$302(0);
+                CustomLogFactory.createFileName(logName);
             }
 
             if ("alive.log".equals(logName)) {
@@ -226,7 +235,7 @@ public class CustomLogFactory {
                 CustomLogFactory.access$802(0);
         }
 
-        private void incrCount(String logName) {
+        private void incrCount2(String logName) {
             if ("tp.log".equals(logName)) {
                 CustomLogFactory.access$308();
             }
