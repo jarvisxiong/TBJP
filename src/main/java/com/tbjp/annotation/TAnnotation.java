@@ -1,7 +1,7 @@
 package com.tbjp.annotation;
 
 import com.tbjp.profiler.CallerInfo;
-import com.tbjp.profiler.Profiler2;
+import com.tbjp.profiler.Profiler;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -39,18 +39,18 @@ public class TAnnotation implements InitializingBean {
             if (anno != null){
                 methodKey = anno.methodKey();
                 if (!isBlank(methodKey)){
-                    callerInfo = Profiler2.registerInfo(methodKey, false, true);
+                    callerInfo = Profiler.start(methodKey, true, true);
                 }
             }
             return jp.proceed();
         }catch (Throwable e){
             if (callerInfo != null){
-                Profiler2.functionError(callerInfo);
+                Profiler.error(callerInfo);
             }
             throw e;
         } finally {
             if (callerInfo != null){
-                Profiler2.registerInfoEnd(callerInfo);
+                Profiler.end(callerInfo);
             }
         }
     }
@@ -68,11 +68,11 @@ public class TAnnotation implements InitializingBean {
     @Override
     public void afterPropertiesSet()throws Exception{
         if (!isBlank(this.systemKey)) {
-            Profiler2.InitHeartBeats(this.systemKey);
+            Profiler.scopeAlive(this.systemKey);
         }
 
         if (!isBlank(this.jvmKey)){
-            Profiler2.registerJVMInfo(this.jvmKey);
+            Profiler.registerJvmData(this.jvmKey);
         }
     }
 
