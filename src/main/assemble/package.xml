@@ -1,0 +1,41 @@
+<assembly xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/assembly-1.0.0.xsd">
+  <id>package</id>
+  <formats>
+    <format>dir</format>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>src/main/bin</directory>
+      <outputDirectory>bin</outputDirectory>
+    </fileSet>
+      <fileSet>
+          <directory>src/main/server2</directory>
+          <outputDirectory>server2</outputDirectory>
+      </fileSet>
+    <fileSet>
+      <directory>src/main/resources</directory>
+      <excludes>
+         <exclude>conf/*/**</exclude>
+      </excludes>
+      <outputDirectory>/</outputDirectory>
+      <filtered>true</filtered>
+    </fileSet>
+    <fileSet>
+      <directory>src/main/resources/${mvn.conf}</directory>
+      <excludes>
+         <exclude>*/*/**</exclude>
+      </excludes>
+      <outputDirectory>/</outputDirectory>
+      <filtered>true</filtered>
+    </fileSet>
+  </fileSets>
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>lib</outputDirectory>
+      <scope>runtime</scope>
+    </dependencySet>
+  </dependencySets>
+</assembly>

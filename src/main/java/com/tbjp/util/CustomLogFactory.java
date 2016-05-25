@@ -84,11 +84,11 @@ public class CustomLogFactory {
 
     private static void setProperties(Properties properties, String loggerName, String appenderName, String fileName) {
         properties.setProperty(String.format("log4j.logger.%s", new Object[]{loggerName}), String.format("INFO,%s", new Object[]{appenderName}));
-        properties.setProperty(String.format("log4j.appender.%s", new Object[]{appenderName}), "com.jd.ump.log4j.RollingFileAppender");
+        properties.setProperty(String.format("log4j.appender.%s", new Object[]{appenderName}), "org.apache.log4j.RollingFileAppender");
         properties.setProperty(String.format("log4j.appender.%s.File", new Object[]{appenderName}), fileName);
         properties.setProperty(String.format("log4j.appender.%s.MaxFileSize", new Object[]{appenderName}), MaxFileSize);
         properties.setProperty(String.format("log4j.appender.%s.MaxBackupIndex", new Object[]{appenderName}), String.valueOf(MaxBackupIndex));
-        properties.setProperty(String.format("log4j.appender.%s.layout", new Object[]{appenderName}), "com.jd.ump.log4j.SimpleLayout");
+        properties.setProperty(String.format("log4j.appender.%s.layout", new Object[]{appenderName}), "org.apache.log4j.SimpleLayout");
         properties.setProperty(String.format("log4j.appender.%s.encoding", new Object[]{appenderName}), "UTF-8");
     }
 
